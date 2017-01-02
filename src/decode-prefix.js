@@ -2,11 +2,12 @@
 
 /**
 Function decoding prefixes for the dimension units.
-@param {string} prefixedUnit entirely unit name, e.g., 'km', 'mA', 'kg*m/s^2'
+@param {string} prefixedUnit entirely unit name, e.g., 'km', 'mA', 'MW'
+@param {string} ownUnit base unit name, e.g., 'm', 'A', 'W'
 @returns numeric representation of prefixed unit relative to the own unit, e.g.,
 for own unit 'W' (watt) prefixed unit 'kW' should be 1000;
 */
-export function decodePrefix(prefixedUnit, ownUnit) {
+export default function decodePrefix(prefixedUnit, ownUnit) {
   // decoding only prefix from prefixed unit, e.g. "km" -> k (kilo, 1000)
   // removing own unit from prefixed one, e.g. ("km", "m") - removing "m" ("k" remains)
   let regex = new RegExp(ownUnit+'$');
